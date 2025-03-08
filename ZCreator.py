@@ -68,7 +68,6 @@ def create_project_structure(project_name, dev_name, client, server, shared, con
 """
         create_file(f"{addon_dir}/lua/{addon_name}/shared/sh_main.lua", shared_content)
     
-    # 5. Create configuration files (if needed)
     if config_sv:
         config_sv_content = create_header("sv_config.lua") + """
 -- Server-side configuration
@@ -117,7 +116,7 @@ def main():
     
     create_project_structure(project_name, dev_name, client, server, shared, config_sh, config_sv, create_main_table)
     
-    print(f"\nAddon structure has been successfully created!\n")
+    print(f"\nAddon structure has been successfully created !")
 
 if __name__ == "__main__":
     main()
