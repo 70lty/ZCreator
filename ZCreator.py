@@ -46,6 +46,7 @@ def create_project_structure(project_name, dev_name, client, server, shared, con
         loader_content += f'include("{addon_name}/server/sv_main.lua")\n'
 
     if create_main_table:
+        loader_content += f"\n{dev_name.lower()} = {dev_name.lower()} or {{}}\n"
         loader_content += f"\n{dev_name.lower()}.{addon_name} = {dev_name.lower()}.{addon_name} or {{}}\n"
     
     create_file(f"{addon_dir}/lua/autorun/{loader_filename}", loader_content)
@@ -68,6 +69,7 @@ def create_project_structure(project_name, dev_name, client, server, shared, con
 """
         create_file(f"{addon_dir}/lua/{addon_name}/shared/sh_main.lua", shared_content)
     
+
     if config_sv:
         config_sv_content = create_header("sv_config.lua") + """
 -- Server-side configuration
@@ -116,7 +118,7 @@ def main():
     
     create_project_structure(project_name, dev_name, client, server, shared, config_sh, config_sv, create_main_table)
     
-    print(f"\nAddon structure has been successfully created !")
+    print(f"\nAddon structure has been successfully created!\n")
 
 if __name__ == "__main__":
     main()
