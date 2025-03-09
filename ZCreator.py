@@ -35,15 +35,15 @@ def create_project_structure(project_name, dev_name, client, server, shared, con
 -- It loads the necessary files
 """
     if server:
-        loader_content += f'include("lua/{addon_name}/server/sv_main.lua")\n'
+        loader_content += f'include("{addon_name}/server/sv_main.lua")\n'
     if shared:
-        loader_content += f'include("lua/{addon_name}/shared/sh_main.lua")\n'
+        loader_content += f'include("{addon_name}/shared/sh_main.lua")\n'
     if client:
-        loader_content += f'AddCSLuaFile("lua/{addon_name}/client/cl_main.lua")\n'
+        loader_content += f'AddCSLuaFile("{addon_name}/client/cl_main.lua")\n'
     if shared:
-        loader_content += f'AddCSLuaFile("lua/{addon_name}/shared/sh_main.lua")\n'
+        loader_content += f'AddCSLuaFile("{addon_name}/shared/sh_main.lua")\n'
     if server:
-        loader_content += f'include("lua/{addon_name}/server/sv_main.lua")\n'
+        loader_content += f'include("{addon_name}/server/sv_main.lua")\n'
 
     if create_main_table:
         loader_content += f"\n{dev_name.lower()}.{addon_name} = {dev_name.lower()}.{addon_name} or {{}}\n"
